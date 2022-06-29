@@ -5,7 +5,7 @@ const applicationBootstrap = express();
 
 applicationBootstrap.use(express.json());
 
-applicationBootstrap.use(categoriesRoutes);
+applicationBootstrap.use('/categories', categoriesRoutes);
 
 applicationBootstrap.listen(3333, () => {
   console.log('Aplication started on port: 3333 🚀')
