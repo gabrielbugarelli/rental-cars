@@ -6,7 +6,7 @@ interface IRequest {
 }
 
 export class CreateSpecificationUseCase {
-  private specificationRepository: ISpecificationRepository
+  private specificationRepository: ISpecificationRepository;
 
   constructor(specificationRepository: ISpecificationRepository) {
     this.specificationRepository = specificationRepository;
