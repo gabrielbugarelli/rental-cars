@@ -1,5 +1,7 @@
 import 'reflect-metadata';
 import './database';
+import './shared/containers';
+
 import express from "express";
 import { router } from "./routes";
 
