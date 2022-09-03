@@ -6,18 +6,15 @@
   "password": "root",
   "database": "rentx",
   "synchronize": true,
-  "logging": true,
+  "logging": false,
   "entities": [
-    "src/entities/**/*.ts"
+    "src/modules/**/entities/*.ts"
   ],
   "migrations": [
     "src/database/migrations/**/*.ts"
   ],
-  "subscribers": [
-    "src/subscriber/**/*.ts"
-  ],
   "cli": {
-    "entitiesDir": "src/entities",
+    "entitiesDir": "src/modules/**/entities/*.ts",
     "migrationsDir": "src/database/migrations",
     "subscribersDir": "src/subscriber"
   }
