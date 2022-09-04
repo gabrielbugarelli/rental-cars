@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { type } from "os";
+import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 
 @Entity('users')
@@ -9,11 +10,23 @@ export class UserEntity {
 
   @Column()
   name: string;
+
+  @Column()
   username: string;
+
+  @Column()
   password: string;
+
+  @Column()
   email: string;
+
+  @Column()
   driver_license: string;
+
+  @Column({name: "admin"})
   isAdmin: boolean;
+
+  @CreateDateColumn()
   created_at: Date;
 
   constructor() {
