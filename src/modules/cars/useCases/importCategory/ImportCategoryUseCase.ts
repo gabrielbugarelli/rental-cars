@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { inject, injectable } from 'tsyringe';
 import { parse } from 'csv-parse';
-import { ICategoriesRepository } from '../../repositories/ICategoriesRepository';
+import { ICategoriesRepository } from '../../repositories/contracts/ICategoriesRepository';
 
 interface IImportCategory {
   name: string;

@@ -1,15 +1,15 @@
 import { Category } from "../entities/CategoryEntity";
-import { ICategoriesRepository, ICreateCategoryDTO } from "./ICategoriesRepository";
+import { ICategoriesRepository, ICreateCategoryDTO } from "./contracts/ICategoriesRepository";
 
 export class PostgresRepository implements ICategoriesRepository {
-  create({ name, description }: ICreateCategoryDTO): void {
+  create({ name, description }: ICreateCategoryDTO): Promise<void> {
     console.log(name, description);
     return null;
   }
-  list(): Category[] {
+  list(): Promise<Category[]> {
     return null;
   }
-  findByName(name: string): Category {
+  findByName(name: string): Promise<Category> {
     console.log(name);
     return null;
   }
