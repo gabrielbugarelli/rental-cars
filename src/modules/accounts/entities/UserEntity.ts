@@ -11,9 +11,6 @@ export class UserEntity {
   name: string;
 
   @Column()
-  username: string;
-
-  @Column()
   password: string;
 
   @Column()
