@@ -17,6 +17,9 @@ export class UserEntity {
   email: string;
 
   @Column()
+  avatar: string;
+
+  @Column()
   driver_license: string;
 
   @Column({name: "admin"})
