@@ -1,11 +1,11 @@
 import 'reflect-metadata';
-import './database';
-import './shared/containers';
+import '../typeorm';
+import '../../containers';
 import 'express-async-errors';
 
 import express, { NextFunction, Request, Response } from "express";
 import { router } from "./routes";
-import { AppError } from './errors/AppError';
+import { AppError } from '../../../errors/AppError';
 
 const applicationBootstrap = express();
 
