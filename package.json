@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn ./src/shared/infra/http/applicationBootstrap.ts",
-    "start": "ts-node src/index.ts",
+    "start": "ts-node ./src/shared/infra/http/applicationBootstrap.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
     "test": "jest"
   },
