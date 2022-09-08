@@ -22,11 +22,13 @@ export async function ensureAuthenticated(request: Request, __: Response, next: 
       throw new AppError('User does not exists!', 401);
     }
 
-    request.user.id = String(user_id);
+    request.user = {
+      id: String(user_id)
+    }
 
-    next();
+    return next();
     
-  } catch (error) {
-    throw new AppError('Ivalid token!', 401);
+  } catch {
+    throw new AppError("Invalid token!", 401);
   }
 }
