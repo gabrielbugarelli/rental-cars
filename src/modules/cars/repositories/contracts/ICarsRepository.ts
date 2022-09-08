@@ -3,5 +3,5 @@ import { CarEntity } from "../../infra/typeorm/entities/CarEntity";
 
 export interface ICarsRepository {
   create(payload: ICreateCarDTO): Promise<CarEntity>;
-  findByLicensePlate(licensePlate: string): Promise<CarEntity>;
+  findByLicensePlate(license_plate: string): Promise<CarEntity>;
 }
