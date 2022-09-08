@@ -1,12 +1,13 @@
 import 'reflect-metadata';
-import '../typeorm';
 import '../../containers';
 import 'express-async-errors';
 
+import createConnection from '../typeorm';
 import express, { NextFunction, Request, Response } from "express";
 import { router } from "./routes";
 import { AppError } from '../../../errors/AppError';
 
+createConnection();
 const applicationBootstrap = express();
 
 applicationBootstrap.use(express.json());
