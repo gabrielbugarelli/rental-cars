@@ -18,6 +18,11 @@ export class CarsRepository implements ICarsRepository{
     return car;
   }
 
+  async findById(car_id: string): Promise<CarEntity> {
+    const car = await this.repository.findOne({id: car_id});
+    return car;
+  }
+
   async findByLicensePlate(license_plate: string): Promise<CarEntity> {
     const car = await this.repository.findOne({license_plate});
     return car;

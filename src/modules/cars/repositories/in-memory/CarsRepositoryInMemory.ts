@@ -3,6 +3,7 @@ import { CarEntity } from "../../infra/typeorm/entities/CarEntity";
 import { ICarsRepository } from "../contracts/ICarsRepository";
 
 export class CarsRepositoryInMemory implements ICarsRepository {
+
   private cars: Array<CarEntity> = [];
   
   async create(payload: ICreateCarDTO): Promise<CarEntity> {
@@ -11,6 +12,11 @@ export class CarsRepositoryInMemory implements ICarsRepository {
     Object.assign(car, payload);
     this.cars.push(car);
 
+    return car;
+  }
+
+  async findById(car_id: string): Promise<CarEntity> {
+    const car = this.cars.find((car) => car.id === car_id);
     return car;
   }
 

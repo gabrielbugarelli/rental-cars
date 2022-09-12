@@ -10,7 +10,7 @@ export async function create() {
 
   await connection.query(`
     insert into users(id, name, email, password, admin, driver_license, created_at)
-    values ('${id}', 'admin', 'admin@admin.com', '${password}', true, '123456', 'now()')
+    values ('${id}', 'admin', 'admin@admin.com', '${password}', true, '123456', now())
   `);
 
   await connection.close();
