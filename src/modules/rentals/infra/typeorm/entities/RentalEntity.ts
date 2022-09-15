@@ -34,7 +34,6 @@ export class RentalEntity {
     if(!this.id) {
       this.id = uuid();
       this.created_at = new Date();
-      this.updated_at = new Date();
     }
   }
 }

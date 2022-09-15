@@ -1,11 +1,7 @@
 import { AppError } from "../../../../errors/AppError";
+import { CreateRentalDTO } from "../../dtos/CreateRentalDTO";
+import { RentalEntity } from "../../infra/typeorm/entities/RentalEntity";
 import { IRentalsRepository } from "../../repositories/contracts/IRentalsRepository";
-
-type PayloadRequest = {
-  user_id: string;
-  car_id: string;
-  expected_return_date: Date;
-}
 
 export class CreateRentalUseCase {
   private rentalsRepository: IRentalsRepository;
@@ -14,7 +10,7 @@ export class CreateRentalUseCase {
     this.rentalsRepository = rentalsRepository;
   }
 
-  async execute(payload: PayloadRequest): Promise<void> {
+  async execute(payload: CreateRentalDTO): Promise<RentalEntity> {
     const {car_id, user_id, expected_return_date } = payload;
 
     const carUnavailable = await this.rentalsRepository.findOpenRentalByCar(car_id);
@@ -28,5 +24,9 @@ export class CreateRentalUseCase {
     if(rentalOpenToUser) {
       throw new AppError("There's a rental in progress to user!");
     }
+
+    const rental = await this.rentalsRepository.create(payload);
+
+    return rental;
   }
 }
