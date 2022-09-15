@@ -10,15 +10,20 @@ export class RentalsRepository implements IRentalsRepository {
     this.repository = getRepository(RentalEntity);
   }
   
-  create(payload: CreateRentalDTO): Promise<RentalEntity> {
-    throw new Error("Method not implemented.");
+  async create(payload: CreateRentalDTO): Promise<RentalEntity> {
+    const rental = this.repository.create(payload);
+    await this.repository.save(rental);
+    return rental;
   }
 
-  findOpenRentalByCar(car_id: string): Promise<RentalEntity> {
-    throw new Error("Method not implemented.");
+  async findOpenRentalByCar(car_id: string): Promise<RentalEntity> {
+    const openByCar = await this.repository.findOne({car_id});
+    return openByCar;
   }
-  findOpenRentalByUser(user_id: string): Promise<RentalEntity> {
-    throw new Error("Method not implemented.");
+
+  async findOpenRentalByUser(user_id: string): Promise<RentalEntity> {
+    const openByUser = await this.repository.findOne({user_id});
+    return openByUser;
   }
 
 }

@@ -1,18 +1,20 @@
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
+import { inject, injectable } from "tsyringe";
 import { AppError } from "../../../../errors/AppError";
-import { IDateProvider } from "../../../../shared/containers/DateProvider/IDateProvider";
+import { IDateProvider } from "../../../../shared/containers/providers/DateProvider/IDateProvider";
 import { CreateRentalDTO } from "../../dtos/CreateRentalDTO";
 import { RentalEntity } from "../../infra/typeorm/entities/RentalEntity";
 import { IRentalsRepository } from "../../repositories/contracts/IRentalsRepository";
 
 dayjs.extend(utc);
 
+@injectable()
 export class CreateRentalUseCase {
   private rentalsRepository: IRentalsRepository;
   private dateProvider: IDateProvider;
 
-  constructor(rentalsRepository: IRentalsRepository, dateProvider: IDateProvider) {
+  constructor(@inject("RentalsRepository") rentalsRepository: IRentalsRepository, @inject("DayJsDateProvider") dateProvider: IDateProvider) {
     this.rentalsRepository = rentalsRepository;
     this.dateProvider = dateProvider;
   }

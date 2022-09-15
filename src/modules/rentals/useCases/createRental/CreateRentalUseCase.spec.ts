@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import { AppError } from "../../../../errors/AppError";
-import { DayJsDateProvider } from "../../../../shared/containers/DateProvider/implementations/DayJsDateProvider";
+import { DayJsDateProvider } from "../../../../shared/containers/providers/DateProvider/implementations/DayJsDateProvider";
 import { CreateRentalDTO } from "../../dtos/CreateRentalDTO";
 import { RentalsRepositoryInMemory } from "../../repositories/in-memory/RentalsRepositoryInMemory";
 import { CreateRentalUseCase } from "./CreateRentalUseCase";
