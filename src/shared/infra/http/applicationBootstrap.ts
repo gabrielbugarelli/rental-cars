@@ -24,6 +24,4 @@ applicationBootstrap.use((error: Error, request: Request, response: Response, ne
   });
 })
 
-applicationBootstrap.listen(3333, () => {
-  console.log('Aplication started on port: 3333 🚀')
-});
+export { applicationBootstrap };
