@@ -14,14 +14,16 @@ applicationBootstrap.use(express.json());
 applicationBootstrap.use(router);
 
 applicationBootstrap.use((error: Error, request: Request, response: Response, next: NextFunction) => {
-  if(error instanceof AppError) {
-    return response.status(error.statusCode).json({message: error.message})
+  if (error instanceof AppError) {
+    return response.status(error.statusCode).json({ message: error.message })
   }
 
   return response.status(500).json({
     status: 'error',
     message: `Internal server error - ${error.message}`
   });
-})
+});
 
-export { applicationBootstrap };
+applicationBootstrap.listen(3333, () => {
+  console.log('Aplication started on port: 3333 🚀')
+});
